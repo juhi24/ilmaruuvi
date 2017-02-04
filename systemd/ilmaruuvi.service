@@ -1,0 +1,16 @@
+[Unit]
+Description=Ruuvi Tag weather station logger
+After=syslog.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=
+ExecStart=
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+
