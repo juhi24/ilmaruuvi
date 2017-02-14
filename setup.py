@@ -112,7 +112,7 @@ setup(
     entry_points={
             'console_scripts': [
                     'install_ilmaruuvi_service = {name}.systemd_service:install'.format(name=name),
-                    '{name} = {name}.__main__:main'
+                    '{name} = {name}.__main__:main'.format(name=name)
             ]
     },
 )
