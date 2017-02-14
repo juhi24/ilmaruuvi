@@ -11,16 +11,16 @@ from setuptools import setup, find_packages
 # To use a consistent encoding
 from codecs import open
 from os import path
-import sys
 
 here = path.abspath(path.dirname(__file__))
+name = 'ilmaruuvi'
 
 # Get the long description from the README file
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='ilmaruuvi',
+    name=name,
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -96,6 +96,7 @@ setup(
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
     package_data={
+            name: ['*.service']
     },
 
     # Although 'package_data' is the preferred approach, in some case you may
@@ -109,5 +110,8 @@ setup(
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
+            'console_scripts': [
+                    'install_ilmaruuvi_service = {name}.systemd_service:install'.format(name)
+            ]
     },
 )
