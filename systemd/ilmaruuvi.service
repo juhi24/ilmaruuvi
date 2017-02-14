@@ -6,8 +6,8 @@ After=syslog.target
 Type=simple
 User=root
 Group=root
-WorkingDirectory=
-ExecStart=
+WorkingDirectory={working_dir}
+ExecStart={exec_start}
 StandardOutput=syslog
 StandardError=syslog
 
