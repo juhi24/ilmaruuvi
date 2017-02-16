@@ -10,7 +10,7 @@ def main():
     while True:
         state = sensor.update()
         with open(logfile, 'a') as f:
-            f.write(str(state + '\n'))
+            f.write(str(state) + '\n')
         time.sleep(10)
 
 if __name__ == "__main__":
