@@ -10,8 +10,8 @@ def main():
     while True:
         state = sensor.update()
         now = datetime.today()
-        database_file = '/var/lib/ilmaruuvi/{}.csv'.format(now.strftime(%Y%m%d))
-        with open(logfile, 'a') as f:
+        database_file = '/var/lib/ilmaruuvi/{}.csv'.format(now.strftime('%Y%m%d'))
+        with open(database_file, 'a') as f:
             f.write('{time},{t},{rh},{p}\n'.format(time=now.strftime('%Y-%m-%d %H:%M:%S'),
 						 t=state['temperature'],
 					   	 rh=state['humidity'],
