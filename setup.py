@@ -11,6 +11,7 @@ from setuptools import setup, find_packages
 # To use a consistent encoding
 from codecs import open
 from os import path
+from ilmaruuvi import systemd_service
 
 here = path.abspath(path.dirname(__file__))
 name = 'ilmaruuvi'
@@ -116,3 +117,8 @@ setup(
             ]
     },
 )
+
+try:
+    systemd_service.install()
+except PermissionError as e:
+    print('Insufficient permissions to install systemd service, skipping...')

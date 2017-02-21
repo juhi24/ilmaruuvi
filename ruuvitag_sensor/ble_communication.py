@@ -46,7 +46,7 @@ class BleCommunicationNix(BleCommunication):
 
     @staticmethod
     def start():
-        print('Start receiving broadcasts')
+        #print('Start receiving broadcasts')
         DEVNULL = subprocess.DEVNULL if sys.version_info > (3, 0) else open(os.devnull, 'wb')
 
         subprocess.call('hciconfig hci0 reset', shell = True, stdout = DEVNULL)
@@ -56,7 +56,7 @@ class BleCommunicationNix(BleCommunication):
 
     @staticmethod
     def stop(hcitool, hcidump):
-        print('Stop receiving broadcasts')
+        #print('Stop receiving broadcasts')
         subprocess.call(['kill', '-s', 'SIGINT', str(hcidump.pid)])
         subprocess.call(['kill', '-s', 'SIGINT', str(hcitool.pid)])
 
@@ -106,7 +106,7 @@ class BleCommunicationNix(BleCommunication):
         data_iter = BleCommunicationNix.get_datas()
         for data in data_iter:
             if mac == data[0]:
-                print('Data found')
+                #print('Data found')
                 data_iter.send(StopIteration)
                 data = data[1]
                 break

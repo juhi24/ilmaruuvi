@@ -4,11 +4,12 @@ from datetime import datetime
 from ruuvitag_sensor.ruuvi import RuuviTagSensor
 
 def main():
-    logfile = '/var/log/ilmaruuvi.log'
     MAC1 = 'E8:A8:F2:B1:AE:A3'
     sensor = RuuviTagSensor(MAC1)
     while True:
         state = sensor.update()
+        if state is None:
+            continue
         now = datetime.today()
         database_file = '/var/lib/ilmaruuvi/{}.csv'.format(now.strftime('%Y%m%d'))
         with open(database_file, 'a') as f:

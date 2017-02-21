@@ -1,7 +1,7 @@
 #!python
 # -*- coding: utf-8 -*-
 from os import path
-import sys
+import shutil
 
 def install():
     filename = 'ilmaruuvi.service'
@@ -9,6 +9,6 @@ def install():
     here = path.abspath(path.dirname(__file__))
     with open(path.join(here, filename), 'r') as f:
         service = f.read()
-    service = service.format(working_dir=here, exec_start=sys.executable + ' ' + here)
+    service = service.format(working_dir=here, exec_start=shutil.which('ilmaruuvi'))
     with open(install_path, 'w') as f:
         f.write(service)
