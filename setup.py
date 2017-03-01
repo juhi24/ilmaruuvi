@@ -65,6 +65,8 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        # OS
+        'Operating System :: POSIX'
     ],
 
     # What does your project relate to?
